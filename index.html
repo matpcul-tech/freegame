@@ -83,14 +83,7 @@ footer{margin-top:48px;color:var(--dim);font-size:.78rem;text-align:center;lette
 <footer>&copy; Matthew Culwell. All rights reserved.</footer>
 </main>
 <script>
-// Shows thanks state. Sends to the service in the background once the action URL is set.
-const f=document.getElementById('form');
-f.addEventListener('submit',e=>{
- e.preventDefault();
- const done=()=>{document.getElementById('signup').classList.add('hide');document.getElementById('thanks').classList.add('show');};
- if(f.action.includes('TODO_')){done();return;}
- fetch(f.action,{method:'POST',body:new FormData(f),mode:'no-cors'}).finally(done);
-});
+// Form submits straight to Kit so its spam check can run.
 if(location.hash==='#thanks'){document.getElementById('signup').classList.add('hide');document.getElementById('thanks').classList.add('show');}
 </script>
 </body>
